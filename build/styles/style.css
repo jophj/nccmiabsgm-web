@@ -10,9 +10,6 @@ a{
   text-decoration: none;
   cursor: auto;
 }
-.title{
-  font-weight: 200;
-}
 .quote{
   width: 100%;
   text-align: right;
@@ -24,14 +21,14 @@ a{
   font-size: 0.8em;
   font-style: italic;
 }
-#main{
+/*#main{
   height: 100%;
 }
 #main > div.view, #main > div.view > .container{
   height: 100%;
   width: 100%;
-}
-#gridTitle{
+}*/
+/*#gridTitle{
   margin-left: 4px;
 }
 #gridTitle h3{
@@ -39,8 +36,8 @@ a{
   font-weight: 200;
   margin-top: 0;
   margin-bottom: 0;
-}
-.grid-container {
+}*/
+/*.grid-container {
   height: 100%;
   overflow-x: hidden;
   overflow-y: scroll;
@@ -91,9 +88,9 @@ a{
   margin-top: 32px;
   height: 82px;
   margin-bottom: 32px;
-}
+}*/
 
-footer .message{
+/*footer .message{
   font-weight: 300;
   padding-left: 15%;
   padding-right: 15%;
@@ -105,7 +102,7 @@ footer .message{
   padding: 0.5em 10px;
   quotes: "\201C""\201D""\2018""\2019";
   color: #ccc;
-}
+}*/
 
 md-sidenav {
   width: 256px !important;
@@ -118,67 +115,4 @@ md-sidenav > header {
 md-sidenav > header h1{
   color: white;
   font-weight: 200 !important;
-}
-
-ul.nav{
-  list-style: none;
-  padding: 0;
-  margin: 0;
-
-  font-size: 18px;
-  font-weight: 300;
-  color: rgb(85,85,85)
-}
-.nav > li{
-  height: 48px;
-}
-.nav > li > a:focus{
-  outline: none;
-}
-.nav > li > a,
-.nav > li > a > div{
-  height: 100%;
-}
-.nav > li > a > div > .icon{
-  width: 65px;
-  padding-top: 12px;
-  padding-left: 32px;
-}
-.nav > li > a > div > .icon svg{
-  fill: white;
-}
-.nav > li > a > div > .icon > img{
-  color: white;
-  height: 24px;
-}
-.nav > li > a > div > .text{
-  padding-top: 12px;
-  padding-left: 8px;
-}
-
-.nav > li:hover,
-.nav > li.selected
-{
-  cursor: pointer;
-  color: white;
-}
-.nav > li.orange .icon,
-.nav > li.orange:hover,
-.nav > li.orange.selected{
-  background-color: #fb8521;
-}
-.nav > li.red .icon,
-.nav > li.red:hover,
-.nav > li.red.selected{
-  background-color: #ce5043;
-}
-.nav > li.azure .icon,
-.nav > li.azure:hover,
-.nav > li.azure.selected{
-  background-color: #1aa1e1;
-}
-.nav > li.green .icon,
-.nav > li.green:hover,
-.nav > li.green.selected{
-  background-color: #b3c833;
 }
