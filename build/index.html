@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html ng-app="NccmiabsgmApp">
+  <head>
+    <meta charset="utf-8">
+    <title>NCCMIABSGM</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="libs/angular-material.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=RobotoDraft:100,200,300,400">
+    <link rel="stylesheet" href="styles/style.css">
+    <script src="libs/angular.min.js"></script>
+    <script src="libs/angular-route.min.js"></script>
+    <script src="libs/angular-animate.min.js"></script>
+    <script src="libs/angular-aria.min.js"></script>
+    <script src="libs/angular-material.min.js"></script>
+  </head>
+  <body ng-controller="AppCtrl" layout="row">
+    <md-sidenav md-component-id="left" md-is-locked-open="true" class="md-sidenav-left md-whiteframe-z2">
+      <header>
+        <md-toolbar class="md-whiteframe-z2">
+          <div class="md-toolbar-tools">
+            <md-button aria-label="menu" class="md-icon-button">
+              <md-icon md-svg-icon="./assets/icons/ic_menu_24px.svg"></md-icon>
+            </md-button>
+            <h1 class="md-heading">NCCMIABSGM</h1>
+          </div>
+        </md-toolbar>
+      </header>
+      <md-content flex role="navigation" class="md-default-theme">
+        <ul role="navigation" class="nav">
+          <li class="red"><a href="#/pokemon">
+              <div layout="row">
+                <div class="icon">
+                  <md-icon md-svg-icon="./assets/icons/ic_pokeball.svg"></md-icon>
+                </div>
+                <div class="text"><span>Pokemon</span></div>
+              </div></a></li>
+          <li ng-class="selectedClass['books']" class="azure"><a href="#/karma">
+              <div layout="row">
+                <div class="icon">
+                  <md-icon md-svg-icon="./assets/icons/ic_yin_yang.svg"></md-icon>
+                </div>
+                <div class="text"><span>Karma</span></div>
+              </div></a></li>
+          <!--li.green(ng-class="selectedClass['games']")
+          a(ng-click="sectionClicked('games')")
+            div(layout="row")
+              div.icon
+                md-icon(md-svg-icon="./assets/icons/ic_steam_24px.svg")
+              div.text
+                span Games
+          
+          
+          -->
+        </ul>
+      </md-content>
+    </md-sidenav>
+  </body>
+  <script src="scripts/app.js"></script>
+</html>

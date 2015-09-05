@@ -1,0 +1,56 @@
+doctype html
+html(ng-app="NccmiabsgmApp")
+  head
+    meta(charset='utf-8')
+    title NCCMIABSGM
+    meta(name='description', content='')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(rel='stylesheet', href='libs/angular-material.min.css')
+    link(rel="stylesheet", href="https://fonts.googleapis.com/css?family=RobotoDraft:100,200,300,400")
+    link(rel="stylesheet", href="styles/style.css")
+    script(src='libs/angular.min.js')
+    script(src='libs/angular-route.min.js')
+    script(src='libs/angular-animate.min.js')
+    script(src='libs/angular-aria.min.js')
+    script(src='libs/angular-material.min.js')
+
+  body(ng-controller="AppCtrl", layout="row")
+
+      md-sidenav.md-sidenav-left.md-whiteframe-z2(
+        md-component-id="left",
+        md-is-locked-open="true")
+        header
+          md-toolbar.md-whiteframe-z2
+            div.md-toolbar-tools
+              md-button.md-icon-button(aria-label="menu")
+                md-icon(md-svg-icon="./assets/icons/ic_menu_24px.svg")
+              h1.md-heading NCCMIABSGM
+
+        md-content(flex, role="navigation", class="md-default-theme")
+          ul.nav(role="navigation")
+            li.red
+              a(href="#/pokemon")
+                div(layout="row")
+                  div.icon
+                    md-icon(md-svg-icon="./assets/icons/ic_pokeball.svg")
+                  div.text
+                    span Pokemon
+                    
+            li.azure(ng-class="selectedClass['books']")
+              a(href="#/karma")
+                div(layout="row")
+                  div.icon
+                    md-icon(md-svg-icon="./assets/icons/ic_yin_yang.svg")
+                  div.text
+                    span Karma
+
+            //li.green(ng-class="selectedClass['games']")
+              a(ng-click="sectionClicked('games')")
+                div(layout="row")
+                  div.icon
+                    md-icon(md-svg-icon="./assets/icons/ic_steam_24px.svg")
+                  div.text
+                    span Games
+
+
+    script(src='scripts/app.js')
