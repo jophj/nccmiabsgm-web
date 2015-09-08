@@ -1,9 +1,18 @@
+/* Overridden styles */
+.md-display-1{
+  font-weight: 100;
+}
+md-content{
+  background-color: #EEEEEE;
+}
+
 html{
   height: 100%;
   overflow: hidden;
 }
 body{
   height: 100%;
+  background-color: #EEEEEE;
 }
 a{
   color: inherit;
@@ -21,6 +30,7 @@ a{
   font-size: 0.8em;
   font-style: italic;
 }
+
 /*#main{
   height: 100%;
 }
@@ -109,10 +119,15 @@ md-sidenav {
   min-width: 256px !important;
   max-width: 256px !important;
 }
+
+
 md-sidenav > header {
   background: #106CC8;
 }
 md-sidenav > header h1{
   color: white;
   font-weight: 200 !important;
+}
+md-sidenav > md-content{
+  background-color: white;
 }

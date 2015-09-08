@@ -17,33 +17,34 @@ html(ng-app="NccmiabsgmApp")
 
   body(ng-controller="AppCtrl", layout="row")
 
-      md-sidenav.md-sidenav-left.md-whiteframe-z2(
-        md-component-id="left",
-        md-is-locked-open="true")
-        header
-          md-toolbar.md-whiteframe-z2
-            div.md-toolbar-tools
-              md-button.md-icon-button(aria-label="menu")
-                md-icon(md-svg-icon="./assets/icons/ic_menu_24px.svg")
-              h1.md-heading NCCMIABSGM
+    md-sidenav.md-sidenav-left.md-whiteframe-z2(
+      md-component-id="left",
+      md-is-locked-open="menuLockedOpen")
+      header
+        md-toolbar.md-whiteframe-z2
+          div.md-toolbar-tools
+            md-button.md-icon-button(ng-click="toggleMenu()", ng-hide="menuLockedOpen", aria-label="menu")
+              md-icon(md-svg-icon="./assets/icons/ic_menu_24px.svg")
+            h1.md-heading NCCMIABSGM
 
-        md-content(flex, role="navigation", class="md-default-theme")
-          ul.nav(role="navigation")
-            
-            li.red(ng-class="selectedClass['pokemon']")
-              a(href="#/pokemon")
-                div(layout="row")
-                  div.icon
-                    md-icon(md-svg-icon="./assets/icons/ic_pokeball.svg")
-                  div.text
-                    span Pokemon
-                    
-            li.azure(ng-class="selectedClass['karma']")
-              a(href="#/karma")
-                div(layout="row")
-                  div.icon
-                    md-icon(md-svg-icon="./assets/icons/ic_yin_yang.svg")
-                  div.text
-                    span Karma
+      md-content(flex, role="navigation", class="md-default-theme")
+        ul.nav(role="navigation")
+          
+          li.red(ng-class="selectedClass['pokemon']")
+            a(href="#/pokemon")
+              div(layout="row")
+                div.icon
+                  md-icon(md-svg-icon="./assets/icons/ic_pokeball.svg")
+                div.text
+                  span Pokemon
+                  
+          li.azure(ng-class="selectedClass['karma']")
+            a(href="#/karma")
+              div(layout="row")
+                div.icon
+                  md-icon(md-svg-icon="./assets/icons/ic_yin_yang.svg")
+                div.text
+                  span Karma
+    ng-view(flex)
 
     script(src='scripts/app.js')

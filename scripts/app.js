@@ -3,11 +3,13 @@ var app = angular.module('NccmiabsgmApp', [
   'ngMaterial',
   'ngRoute'
 ]);
+
+
 app.config(['$routeProvider', function($routeProvider) {
   console.log('config');
   $routeProvider.
   when('/pokemon', {
-    templateUrl: 'partials/test.html'
+    templateUrl: 'partials/pokemon.html'
     //controller: 'PhoneListCtrl'
   }).
   otherwise({
@@ -15,9 +17,27 @@ app.config(['$routeProvider', function($routeProvider) {
   });
 }]);
 
+
 app.controller('AppCtrl', [
-  '$scope', 
-  function($scope){
-    console.log('AppCtrl');
+  '$scope', '$mdMedia', 
+  function($scope, $mdMedia){
+
+    $scope.$watch(function(){
+      return $mdMedia('gt-md');
+    }, function(){
+      $scope.menuLockedOpen = $mdMedia('gt-md');
+    });
+
+    $scope.toggleMenu = function(){
+      $mdSidenav('left').toggle();
+    };
+    $scope.openMenu = function(){
+      $mdSidenav('left').open();
+    };
+    $scope.closeMenu = function(){
+      $mdSidenav('left').close();
+    };
+
+
   }
 ]);
