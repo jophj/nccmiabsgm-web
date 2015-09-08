@@ -1,4 +1,17 @@
 
 <md-content layout="column" ng-controller="PokemonCtrl" class="md-padding">
-  <h2 class="md-display-1">Pokemon</h2>
+  <div ng-repeat="trainer in trainers">
+    <h2 class="md-display-1">{{trainer.user.name}}</h2>
+    <md-content layout="row" layout-wrap="layout-wrap">
+      <div ng-repeat="pokemon in trainer.capturedPokemons" flex-sm="100" flex-md="50" flex-lg="20" flex-gt-lg="13">
+        <md-card class="pokemon-card">
+          <md-tooltip>{{pokemon.message}}</md-tooltip>
+          <div class="md-padding"><img ng-src="http://localhost:8081/{{pokemon.sprite.officialArt}}"/></div>
+          <md-card-content>
+            <h4 class="md-subhead">{{pokemon.name}} &#35;{{pokemon.ndex}}</h4>
+          </md-card-content>
+        </md-card>
+      </div>
+    </md-content>
+  </div>
 </md-content>

@@ -9,6 +9,7 @@ ul.nav{
 }
 .nav > li{
   height: 48px;
+  transition: background-color ease-out .2s;
 }
 .nav > li > a:focus{
   outline: none;
@@ -32,6 +33,7 @@ ul.nav{
 .nav > li > a > div > .text{
   padding-top: 12px;
   padding-left: 8px;
+  transition: background-color ease-in .2s;
 }
 
 .nav > li:hover,

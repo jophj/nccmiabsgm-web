@@ -13,7 +13,9 @@ h1.md-heading{
 h2.md-heading{
   font-weight: 100;
 }
-
+h4.md-subhead{
+  margin: 0;
+}
 html{
   height: 100%;
   overflow: hidden;
@@ -39,89 +41,6 @@ a{
   font-style: italic;
 }
 
-/*#main{
-  height: 100%;
-}
-#main > div.view, #main > div.view > .container{
-  height: 100%;
-  width: 100%;
-}*/
-/*#gridTitle{
-  margin-left: 4px;
-}
-#gridTitle h3{
-  font-size: 32px;
-  font-weight: 200;
-  margin-top: 0;
-  margin-bottom: 0;
-}*/
-/*.grid-container {
-  height: 100%;
-  overflow-x: hidden;
-  overflow-y: scroll;
-}
-#gridList{
-  padding-bottom: 32px;
-  height: 100%;
-}
-#gridList md-card{
-  width: 100%;
-  margin-top: auto;
-}
-#gridList md-grid-tile{
-  transition: transform .2s ease;
-}
-#gridList md-grid-tile:hover{
-          filter: brightness(90%);
-  -webkit-filter: brightness(90%);
-  z-index: 2;
-}
-#gridList md-grid-tile.ng-enter {
-  transition: 0.5s ease-in opacity;
-  opacity: 0;
-}
-#gridList md-grid-tile.ng-enter.ng-enter-active {
-  opacity: 1;
-}
-#gridList md-grid-tile-footer{
-  margin: 8px;
-  background: none repeat scroll 0% 0% rgba(0, 0, 0, 0.24);
-}
-#gridList > md-grid-list > md-grid-tile > figure > md-card > div > img{
-  vertical-align: bottom;
-}
-#gridList figcaption{
-  position: relative;
-  max-width: 100%;
-}
-#gridList figcaption > h3,
-#gridList figcaption > h4{
-  margin-right: 16px;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-}
-
-#gridList footer{
-  margin-top: 32px;
-  height: 82px;
-  margin-bottom: 32px;
-}*/
-
-/*footer .message{
-  font-weight: 300;
-  padding-left: 15%;
-  padding-right: 15%;
-  text-align: center;
-
-  background: #f9f9f9;
-  border-left: 10px solid #ccc;
-  margin: 1.5em 10px;
-  padding: 0.5em 10px;
-  quotes: "\201C""\201D""\2018""\2019";
-  color: #ccc;
-}*/
-
 md-sidenav {
   width: 256px !important;
   min-width: 256px !important;
@@ -134,4 +53,10 @@ md-sidenav > header {
 }
 md-sidenav > md-content{
   background-color: white;
+}
+md-card.pokemon-card{
+  transition: background-color ease-out .2s;
+}
+md-card.pokemon-card:hover {
+  background-color: #EEEEEE;
 }
