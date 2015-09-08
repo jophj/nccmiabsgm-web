@@ -23,8 +23,6 @@ html(ng-app="NccmiabsgmApp")
       header
         md-toolbar.md-whiteframe-z2
           div.md-toolbar-tools
-            md-button.md-icon-button(ng-click="toggleMenu()", ng-hide="menuLockedOpen", aria-label="menu")
-              md-icon(md-svg-icon="./assets/icons/ic_menu_24px.svg")
             h1.md-heading NCCMIABSGM
 
       md-content(flex, role="navigation", class="md-default-theme")
@@ -49,6 +47,8 @@ html(ng-app="NccmiabsgmApp")
     div(layout="column", flex)
       md-toolbar.md-scroll-shrink
         div.md-toolbar-tools
+          md-button.md-icon-button(ng-click="toggleMenu()", ng-hide="menuLockedOpen", aria-label="menu")
+            md-icon(md-svg-icon="./assets/icons/ic_menu_24px.svg")
           h2.md-heading {{heading}}
       
       ng-view(flex)

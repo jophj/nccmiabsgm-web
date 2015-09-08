@@ -19,8 +19,8 @@ app.config(['$routeProvider', function($routeProvider) {
 
 
 app.controller('AppCtrl', [
-  '$scope', '$mdMedia',
-  function($scope, $mdMedia){
+  '$scope', '$mdMedia', '$mdSidenav',
+  function($scope, $mdMedia, $mdSidenav){
 
     $scope.heading = '';
 

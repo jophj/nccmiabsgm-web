@@ -20,9 +20,6 @@
       <header>
         <md-toolbar class="md-whiteframe-z2">
           <div class="md-toolbar-tools">
-            <md-button ng-click="toggleMenu()" ng-hide="menuLockedOpen" aria-label="menu" class="md-icon-button">
-              <md-icon md-svg-icon="./assets/icons/ic_menu_24px.svg"></md-icon>
-            </md-button>
             <h1 class="md-heading">NCCMIABSGM</h1>
           </div>
         </md-toolbar>
@@ -49,6 +46,9 @@
     <div layout="column" flex>
       <md-toolbar class="md-scroll-shrink">
         <div class="md-toolbar-tools">
+          <md-button ng-click="toggleMenu()" ng-hide="menuLockedOpen" aria-label="menu" class="md-icon-button">
+            <md-icon md-svg-icon="./assets/icons/ic_menu_24px.svg"></md-icon>
+          </md-button>
           <h2 class="md-heading">{{heading}}</h2>
         </div>
       </md-toolbar>
