@@ -9,8 +9,8 @@ app.config(['$routeProvider', function($routeProvider) {
   console.log('config');
   $routeProvider.
   when('/pokemon', {
-    templateUrl: 'partials/pokemon.html'
-    //controller: 'PhoneListCtrl'
+    templateUrl: 'partials/pokemon.html',
+    controller: 'PokemonCtrl'
   }).
   otherwise({
     redirectTo: '/'
@@ -19,8 +19,10 @@ app.config(['$routeProvider', function($routeProvider) {
 
 
 app.controller('AppCtrl', [
-  '$scope', '$mdMedia', 
+  '$scope', '$mdMedia',
   function($scope, $mdMedia){
+
+    $scope.heading = '';
 
     $scope.$watch(function(){
       return $mdMedia('gt-md');
@@ -37,7 +39,12 @@ app.controller('AppCtrl', [
     $scope.closeMenu = function(){
       $mdSidenav('left').close();
     };
+  }
+]);
 
-
+app.controller('PokemonCtrl', [
+  '$scope', 
+  function($scope){
+    $scope.$parent.heading = 'Pokemon';
   }
 ]);

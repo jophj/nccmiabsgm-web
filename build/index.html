@@ -46,7 +46,14 @@
         </ul>
       </md-content>
     </md-sidenav>
-    <ng-view flex></ng-view>
+    <div layout="column" flex>
+      <md-toolbar class="md-scroll-shrink">
+        <div class="md-toolbar-tools">
+          <h2 class="md-heading">{{heading}}</h2>
+        </div>
+      </md-toolbar>
+      <ng-view flex></ng-view>
+    </div>
     <script src="scripts/app.js"></script>
   </body>
 </html>

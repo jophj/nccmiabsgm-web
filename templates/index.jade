@@ -45,6 +45,12 @@ html(ng-app="NccmiabsgmApp")
                   md-icon(md-svg-icon="./assets/icons/ic_yin_yang.svg")
                 div.text
                   span Karma
-    ng-view(flex)
+
+    div(layout="column", flex)
+      md-toolbar.md-scroll-shrink
+        div.md-toolbar-tools
+          h2.md-heading {{heading}}
+      
+      ng-view(flex)
 
     script(src='scripts/app.js')
