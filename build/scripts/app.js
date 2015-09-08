@@ -23,6 +23,7 @@ app.controller('AppCtrl', [
   function($scope, $mdMedia, $mdSidenav){
 
     $scope.heading = '';
+    $scope.assetsHost = 'http://52.26.147.171:8081';
 
     $scope.$watch(function(){
       return $mdMedia('gt-sm');

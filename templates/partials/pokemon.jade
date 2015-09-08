@@ -6,6 +6,6 @@ md-content.md-padding(layout="column", ng-controller="PokemonCtrl")
         md-card.pokemon-card
           md-tooltip {{pokemon.message}}
           div.md-padding
-            img(ng-src="http://localhost:8081/{{pokemon.sprite.officialArt}}")
+            img(ng-src="{{assetsHost}}/{{pokemon.sprite.officialArt}}")
           md-card-content
             h4.md-subhead {{pokemon.name}} &#35;{{pokemon.ndex}}

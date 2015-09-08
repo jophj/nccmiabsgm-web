@@ -6,7 +6,7 @@
       <div ng-repeat="pokemon in trainer.capturedPokemons" flex-sm="100" flex-md="50" flex-lg="20" flex-gt-lg="13">
         <md-card class="pokemon-card">
           <md-tooltip>{{pokemon.message}}</md-tooltip>
-          <div class="md-padding"><img ng-src="http://localhost:8081/{{pokemon.sprite.officialArt}}"/></div>
+          <div class="md-padding"><img ng-src="{{assetsHost}}/{{pokemon.sprite.officialArt}}"/></div>
           <md-card-content>
             <h4 class="md-subhead">{{pokemon.name}} &#35;{{pokemon.ndex}}</h4>
           </md-card-content>
