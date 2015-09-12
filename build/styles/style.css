@@ -16,6 +16,15 @@ h2.md-heading{
 h4.md-subhead{
   margin: 0;
 }
+
+h4.md-subhead, h5.md-subhead {
+  line-height: 14px;
+}
+
+md-card{
+  width: 100%;
+  border-radius: 14px;
+}
 html{
   height: 100%;
   overflow: hidden;
@@ -59,4 +68,29 @@ md-card.pokemon-card{
 }
 md-card.pokemon-card:hover {
   background-color: #EEEEEE;
+}
+
+.pokemon-card-content h4, h5 {
+  margin: 0;
+}
+
+.pokemon-card-content h5 {
+  font-size: 12px;
+  color: #AAA;
+}
+
+.types {
+  margin-top: 8px;
+}
+.types > .type span{
+  overflow: hidden;
+  border-radius: 3px;
+  line-height: 18px;
+  max-width: 120px;
+  margin: 0 1.5625% 0 0;
+  width: 45.4375%;
+  float: left;
+  text-transform: none;
+  font-size: 11px;
+  text-align: center;
 }

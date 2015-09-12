@@ -9,11 +9,13 @@ html(ng-app="NccmiabsgmApp")
     link(rel="stylesheet", href="https://fonts.googleapis.com/css?family=RobotoDraft:100,200,300,400")
     link(rel="stylesheet", href="styles/style.css")
     link(rel="stylesheet", href="styles/nav.css")
+    link(rel="stylesheet", href="styles/pills.css")
     script(src='libs/angular.min.js')
     script(src='libs/angular-route.min.js')
     script(src='libs/angular-animate.min.js')
     script(src='libs/angular-aria.min.js')
     script(src='libs/angular-material.min.js')
+    script(src='libs/angular-resource.min.js')
 
   body(ng-controller="AppCtrl", layout="row")
 
@@ -51,6 +53,7 @@ html(ng-app="NccmiabsgmApp")
             md-icon(md-svg-icon="./assets/icons/ic_menu_24px.svg")
           h2.md-heading {{heading}}
       
-      ng-view(flex)
+      md-table(headers="headers", content="content", sortable="sortable", filters="search", custom-class="custom", thumbs="thumbs", count="count")
+      md-content(ng-view)
 
     script(src='scripts/app.js')

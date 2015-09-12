@@ -1,9 +1,9 @@
 /* global angular */
 var app = angular.module('NccmiabsgmApp', [
   'ngMaterial',
-  'ngRoute'
+  'ngRoute',
+  'ngResource'
 ]);
-
 
 app.config(['$routeProvider', function($routeProvider) {
   console.log('config');
@@ -11,6 +11,10 @@ app.config(['$routeProvider', function($routeProvider) {
   when('/pokemon', {
     templateUrl: 'partials/pokemon.html',
     controller: 'PokemonCtrl'
+  }).
+  when('/karma', {
+    templateUrl: 'partials/karma.html',
+    controller: 'KarmaCtrl'
   }).
   otherwise({
     redirectTo: '/'
@@ -43,131 +47,57 @@ app.controller('AppCtrl', [
   }
 ]);
 
-// var trainers = [ { _id: 55cf1313a1a8c70035fd9845,
-//     capturedPokemons:
-//      [ [Object],
-//        [Object],
-//        [Object],
-//        [Object],
-//        [Object],
-//        [Object],
-//        [Object],
-//        [Object],
-//        [Object],
-//        [Object] ],
-//     count: 10,
-//     user:
-//      { _id: 55cf1313a1a8c70035fd9845,
-//        telegramId: 102325009,
-//        name: 'Silvia',
-//        __v: 0,
-//        birthdate: Thu Sep 07 1989 00:00:00 GMT+0200 (W. Europe Daylight Time),
-//        alias: [ 'Silvia', 'Santus', 'SilviaTek', 'Naashira', 'Nashira' ] } },
+//TODO host as constant
+app.factory('Trainer', ['$resource', function($resource) {
+  // return $resource('http://52.26.147.171:8081/api/trainers/');
+  return $resource('http://localhost:8081/api/trainers/');
+}]);
 
-
-//{ "_id" : ObjectId("55cf3295b15181983880af8b"), "ndex" : 15, "name" : "Beedrill", "catchRate" : 45, "total" : 395, "sprite" : { "animated" : "assets/pokemon/sprites/animated/beedrill.gif", "officialArt" : "assets/pokemon/sprites/official-art/beedrill.png" }, "__v" : 1, "types" : [ "poison", "bug" ] }
+app.factory('TypeData', [function() {
+  return {
+    'normal': {name: 'Normale', class: 'normal'},
+    'fire': {name: 'Fuoco', class: 'fire'},
+    'fighting': {name: 'Lotta', class: 'fighting'},
+    'water': {name: 'Acqua', class: 'water'},
+    'flying': {name: 'Volante', class: 'flying'},
+    'grass': {name: 'Erba', class: 'grass'},
+    'poison': {name: 'Veleno', class: 'poison'},
+    'electric': {name: 'Elettro', class: 'electric'},
+    'ground': {name: 'Terra', class: 'ground'},
+    'psychic': {name: 'Psico', class: 'psychic'},
+    'rock': {name: 'Roccia', class: 'rock'},
+    'ice': {name: 'Ghiaccio', class: 'ice'},
+    'bug': {name: 'Insetto', class: 'bug'},
+    'dragon': {name: 'Drago', class: 'dragon'},
+    'ghost': {name: 'Spettro', class: 'ghost'},
+    'dark': {name: 'Buio', class: 'dark'},
+    'steel': {name: 'Acciaio', class: 'steel'},
+    'fairy': {name: 'Folletto', class: 'fairy'}
+  };
+}]);
 
 app.controller('PokemonCtrl', [
-  '$scope', 
-  function($scope){
+  '$scope', 'Trainer', 'TypeData',
+  function($scope, Trainer, TypeData){
+
     $scope.$parent.heading = 'Pokemon';
 
-    $scope.trainers = [{
-      user: {
-        name: 'Silvia'
-      },
-      capturedPokemons: [{
-        ndex: 150,
-        name: "Mew",
-        types: ["psycho"],
-        message:"lancio la sfera",
-        sprite : {
-          "animated" : "assets/pokemon/sprites/animated/mew.gif",
-          "officialArt" : "assets/pokemon/sprites/official-art/mew.png"
-        }
-      },{
-        ndex: 150,
-        name: "Mew",
-        types: ["psycho"],
-        message:"lancio la sfera",
-        sprite : {
-          "animated" : "assets/pokemon/sprites/animated/mew.gif",
-          "officialArt" : "assets/pokemon/sprites/official-art/mew.png"
-        }
-      },{
-        ndex: 150,
-        name: "Mew",
-        types: ["psycho"],
-        message:"lancio la sfera",
-        sprite : {
-          "animated" : "assets/pokemon/sprites/animated/mew.gif",
-          "officialArt" : "assets/pokemon/sprites/official-art/mew.png"
-        }
-      },{
-        ndex: 150,
-        name: "Mew",
-        types: ["psycho"],
-        message:"lancio la sfera",
-        sprite : {
-          "animated" : "assets/pokemon/sprites/animated/mew.gif",
-          "officialArt" : "assets/pokemon/sprites/official-art/mew.png"
-        }
-      },{
-        ndex: 150,
-        name: "Mew",
-        types: ["psycho"],
-        message:"lancio la sfera",
-        sprite : {
-          "animated" : "assets/pokemon/sprites/animated/mew.gif",
-          "officialArt" : "assets/pokemon/sprites/official-art/mew.png"
-        }
-      },{
-        ndex: 150,
-        name: "Mew",
-        types: ["psycho"],
-        message:"lancio la sfera",
-        sprite : {
-          "animated" : "assets/pokemon/sprites/animated/mew.gif",
-          "officialArt" : "assets/pokemon/sprites/official-art/mew.png"
-        }
-      },{
-        ndex: 150,
-        name: "Mew",
-        types: ["psycho"],
-        message:"lancio la sfera",
-        sprite : {
-          "animated" : "assets/pokemon/sprites/animated/mew.gif",
-          "officialArt" : "assets/pokemon/sprites/official-art/mew.png"
-        }
-      },{
-        ndex: 150,
-        name: "Mew",
-        types: ["psycho"],
-        message:"lancio la sfera",
-        sprite : {
-          "animated" : "assets/pokemon/sprites/animated/mew.gif",
-          "officialArt" : "assets/pokemon/sprites/official-art/mew.png"
-        }
-      },{
-        ndex: 150,
-        name: "Mew",
-        types: ["psycho"],
-        message:"lancio la sfera",
-        sprite : {
-          "animated" : "assets/pokemon/sprites/animated/mew.gif",
-          "officialArt" : "assets/pokemon/sprites/official-art/mew.png"
-        }
-      },{
-        ndex: 150,
-        name: "Mew",
-        types: ["psycho"],
-        message:"lancio la sfera",
-        sprite : {
-          "animated" : "assets/pokemon/sprites/animated/mew.gif",
-          "officialArt" : "assets/pokemon/sprites/official-art/mew.png"
-        }
-      },
-      ]
-    }];
+    $scope.typeData = TypeData;
+
+    Trainer.query().$promise.then(function(trainers){
+      $scope.trainers = trainers;
+    });
+  }
+]);
+
+app.controller('KarmaCtrl', [
+  '$scope', 'Trainer',
+  function($scope, Trainer){
+
+    $scope.$parent.heading = 'Pokemon';
+
+    Trainer.query().$promise.then(function(trainers){
+      $scope.trainers = trainers;
+    });
   }
 ]);

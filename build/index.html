@@ -9,11 +9,13 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=RobotoDraft:100,200,300,400">
     <link rel="stylesheet" href="styles/style.css">
     <link rel="stylesheet" href="styles/nav.css">
+    <link rel="stylesheet" href="styles/pills.css">
     <script src="libs/angular.min.js"></script>
     <script src="libs/angular-route.min.js"></script>
     <script src="libs/angular-animate.min.js"></script>
     <script src="libs/angular-aria.min.js"></script>
     <script src="libs/angular-material.min.js"></script>
+    <script src="libs/angular-resource.min.js"></script>
   </head>
   <body ng-controller="AppCtrl" layout="row">
     <md-sidenav md-component-id="left" md-is-locked-open="menuLockedOpen" class="md-sidenav-left md-whiteframe-z2">
@@ -52,7 +54,8 @@
           <h2 class="md-heading">{{heading}}</h2>
         </div>
       </md-toolbar>
-      <ng-view flex></ng-view>
+      <md-table headers="headers" content="content" sortable="sortable" filters="search" custom-class="custom" thumbs="thumbs" count="count"></md-table>
+      <md-content ng-view></md-content>
     </div>
     <script src="scripts/app.js"></script>
   </body>
