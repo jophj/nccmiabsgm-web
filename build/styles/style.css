@@ -109,6 +109,13 @@ md-card.pokemon-card:hover {
   text-align: center;
 }
 
+.pokemon-filter{
+  position: absolute;
+  left: 0;
+  right: 0;
+  padding-left: 16px; 
+  padding-right: 16px; 
+}
 /**
   Karma stuff
 */

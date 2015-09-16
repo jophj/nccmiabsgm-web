@@ -1,10 +1,16 @@
 md-content#pokemon-content(layout="column", layout-padding)
-  div.md-padding(ng-repeat="trainer in trainers")
+
+  div.pokemon-filter(layout="row", layout-align="end")
+    md-input-container(flex="50")
+      label Search
+      input(ng-model="searchString", ng-change="onSearchStringUpdated()")
+
+  div.md-padding(ng-repeat="trainer in trainers", ng-show="trainer.$filteredPokemons.length")
     h3.md-display-1 {{trainer.user.name}} ({{trainer.capturedPokemons.length}}/151)
 
     md-grid-list(md-cols-sm="2" md-cols-md="3" md-cols-gt-md="5"
       md-row-height="26:41")
-      md-grid-tile(ng-repeat="capture in trainer.capturedPokemons", md-rowspan="1" md-colspan="1")
+      md-grid-tile(ng-repeat="capture in trainer.$filteredPokemons", md-rowspan="1" md-colspan="1")
         md-card.pokemon-card
           md-tooltip(ng-show="capture.message") {{capture.message}}
           md-tooltip(ng-hide="capture.message") Nessun messaggio registrato

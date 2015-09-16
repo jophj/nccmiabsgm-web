@@ -82,8 +82,8 @@ app.factory('TypeData', [function() {
 }]);
 
 app.controller('PokemonCtrl', [
-  '$scope', 'SERVER', 'Trainer', 'TypeData',
-  function($scope, SERVER, Trainer, TypeData){
+  '$scope', '$filter', 'SERVER', 'Trainer', 'TypeData',
+  function($scope, $filter, SERVER, Trainer, TypeData){
 
     $scope.server = SERVER;
     $scope.$parent.heading = 'Pokemon';
@@ -92,7 +92,16 @@ app.controller('PokemonCtrl', [
 
     Trainer.query().$promise.then(function(trainers){
       $scope.trainers = trainers;
+      $scope.trainers.forEach(function(trainer){
+        trainer.$filteredPokemons = trainer.capturedPokemons;
+      });
     });
+
+    $scope.onSearchStringUpdated = function () {
+      $scope.trainers.forEach(function(trainer){
+        trainer.$filteredPokemons = $filter('filter')(trainer.capturedPokemons, $scope.searchString);
+      });
+    }
   }
 ]);
 
