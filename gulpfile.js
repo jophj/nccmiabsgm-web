@@ -11,11 +11,13 @@ var libs = [
   'bower_components/angular-route/angular-route.min.js',
   'bower_components/angular-aria/angular-aria.min.js',
   'bower_components/angular-material/angular-material.min.js',
-  'bower_components/angular-resource/angular-resource.min.js'
+  'bower_components/angular-resource/angular-resource.min.js',
+  'bower_components/angular-material-data-table/dist/md-data-table.min.js'
 ];
 
 var cssLibs = [
-  'bower_components/angular-material/angular-material.min.css'
+  'bower_components/angular-material/angular-material.min.css',
+  'bower_components/angular-material-data-table/dist/md-data-table.min.css'
 ]
 
 source = {

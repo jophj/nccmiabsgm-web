@@ -2,10 +2,11 @@
 <html ng-app="NccmiabsgmApp">
   <head>
     <meta charset="utf-8">
-    <title>NCCMIABSGM</title>
+    <title>NCCMIAB</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="libs/angular-material.min.css">
+    <link rel="stylesheet" href="libs/md-data-table.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=RobotoDraft:100,200,300,400">
     <link rel="stylesheet" href="styles/style.css">
     <link rel="stylesheet" href="styles/nav.css">
@@ -16,13 +17,14 @@
     <script src="libs/angular-aria.min.js"></script>
     <script src="libs/angular-material.min.js"></script>
     <script src="libs/angular-resource.min.js"></script>
+    <script src="libs/md-data-table.min.js"></script>
   </head>
   <body ng-controller="AppCtrl" layout="row">
     <md-sidenav md-component-id="left" md-is-locked-open="menuLockedOpen" class="md-sidenav-left md-whiteframe-z2">
       <header>
         <md-toolbar class="md-whiteframe-z2">
           <div class="md-toolbar-tools">
-            <h1 class="md-heading">NCCMIABSGM</h1>
+            <h1 class="md-heading">NCCMIAB<sup>beta</sup></h1>
           </div>
         </md-toolbar>
       </header>
@@ -55,7 +57,7 @@
         </div>
       </md-toolbar>
       <md-table headers="headers" content="content" sortable="sortable" filters="search" custom-class="custom" thumbs="thumbs" count="count"></md-table>
-      <md-content ng-view></md-content>
+      <md-content ng-view layout="column" flex></md-content>
     </div>
     <script src="scripts/app.js"></script>
   </body>

@@ -1,13 +1,20 @@
 
-<md-content layout="column" layout-padding="layout-padding">
+<md-content id="pokemon-content" layout="column" layout-padding="layout-padding">
+  <md-virtual-repeat-container>
+    <div md-virtual-repeat="trainer in trainers">{{trainer.user.name}}
+      <md-virtual-repeat-container>
+        <div md-virtual-repeat="capture in trainer.capturedPokemons">{{capture}}</div>
+      </md-virtual-repeat-container>
+    </div>
+  </md-virtual-repeat-container>
   <div ng-repeat="trainer in trainers" class="md-padding">
-    <h2 class="md-display-1">{{trainer.user.name}}</h2>
-    <md-grid-list md-cols-sm="1" md-cols-md="3" md-cols-gt-md="5" md-row-height="26:41">
+    <h3 class="md-display-1">{{trainer.user.name}} ({{trainer.capturedPokemons.length}}/151)</h3>
+    <md-grid-list md-cols-sm="2" md-cols-md="3" md-cols-gt-md="5" md-row-height="26:41">
       <md-grid-tile ng-repeat="capture in trainer.capturedPokemons" md-rowspan="1" md-colspan="1">
         <md-card class="pokemon-card">
           <md-tooltip ng-show="capture.message">{{capture.message}}</md-tooltip>
           <md-tooltip ng-hide="capture.message">Nessun messaggio registrato</md-tooltip>
-          <div class="md-padding"><img ng-src="{{assetsHost}}/{{capture.pokemon.sprite.officialArt}}"/></div>
+          <div class="md-padding"><img ng-src="{{server}}/{{capture.pokemon.sprite.officialArt}}"/></div>
           <md-card-content class="pokemon-card-content">
             <div>
               <h5 class="md-subhead">&#35;{{capture.pokemon.ndex}}</h5>

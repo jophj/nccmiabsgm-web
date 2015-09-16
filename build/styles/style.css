@@ -2,16 +2,19 @@
 md-content{
   background-color: #EEEEEE;
 }
-
-.md-display-1{
+.md-display-1 {
   font-weight: 100;
 }
 
-h1.md-heading{
+h1.md-heading {
   font-weight: 300;
 }
-h2.md-heading{
+h2.md-heading {
   font-weight: 100;
+}
+h3.md-display-1 {
+  margin-top: 0;
+  margin-bottom: 0;
 }
 h4.md-subhead{
   margin: 0;
@@ -38,6 +41,11 @@ a{
   text-decoration: none;
   cursor: auto;
 }
+sup{
+  font-size: 6px;
+  font-weight: 100;
+  position: absolute;
+}
 .quote{
   width: 100%;
   text-align: right;
@@ -63,6 +71,12 @@ md-sidenav > header {
 md-sidenav > md-content{
   background-color: white;
 }
+
+
+
+/**
+  Pokemon stuff
+*/
 md-card.pokemon-card{
   transition: background-color ease-out .2s;
 }
@@ -93,4 +107,14 @@ md-card.pokemon-card:hover {
   text-transform: none;
   font-size: 11px;
   text-align: center;
+}
+
+/**
+  Karma stuff
+*/
+md-content#karma-content .tabs-content{
+  background-color: white;
+}
+md-tabs {
+  background-color: white;
 }

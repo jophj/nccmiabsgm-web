@@ -2,23 +2,23 @@
 var app = angular.module('NccmiabsgmApp', [
   'ngMaterial',
   'ngRoute',
-  'ngResource'
+  'ngResource',
+  'md.data.table'
 ]);
 
 app.config(['$routeProvider', function($routeProvider) {
-  console.log('config');
   $routeProvider.
-  when('/pokemon', {
-    templateUrl: 'partials/pokemon.html',
-    controller: 'PokemonCtrl'
-  }).
-  when('/karma', {
-    templateUrl: 'partials/karma.html',
-    controller: 'KarmaCtrl'
-  }).
-  otherwise({
-    redirectTo: '/'
-  });
+    when('/pokemon', {
+      templateUrl: 'partials/pokemon.html',
+      controller: 'PokemonCtrl'
+    }).
+    when('/karma', {
+      templateUrl: 'partials/karma.html',
+      controller: 'KarmaCtrl'
+    }).
+    otherwise({
+      redirectTo: '/pokemon'
+    });
 }]);
 
 
@@ -27,10 +27,10 @@ app.controller('AppCtrl', [
   function($scope, $mdMedia, $mdSidenav){
 
     $scope.heading = '';
-    $scope.assetsHost = 'http://52.26.147.171:8081';
-
+    $scope.gtSm = $mdMedia('gt-sm');;
     $scope.$watch(function(){
-      return $mdMedia('gt-sm');
+      $scope.gtSm = $mdMedia('gt-sm');
+      return $scope.gtSm;
     }, function(){
       $scope.menuLockedOpen = $mdMedia('gt-sm');
     });
@@ -47,10 +47,15 @@ app.controller('AppCtrl', [
   }
 ]);
 
-//TODO host as constant
-app.factory('Trainer', ['$resource', function($resource) {
-  // return $resource('http://52.26.147.171:8081/api/trainers/');
-  return $resource('http://localhost:8081/api/trainers/');
+app.constant('SERVER', 'http://52.26.147.171:8081');
+// app.constant('SERVER', 'http://localhost:8081');
+
+app.factory('Trainer', ['$resource', 'SERVER', function($resource, SERVER) {
+  return $resource(SERVER + '/api/trainers/');
+}]);
+
+app.factory('Karma', ['$resource', 'SERVER', function($resource, SERVER) {
+  return $resource(SERVER + '/api/karma/');
 }]);
 
 app.factory('TypeData', [function() {
@@ -77,9 +82,10 @@ app.factory('TypeData', [function() {
 }]);
 
 app.controller('PokemonCtrl', [
-  '$scope', 'Trainer', 'TypeData',
-  function($scope, Trainer, TypeData){
+  '$scope', 'SERVER', 'Trainer', 'TypeData',
+  function($scope, SERVER, Trainer, TypeData){
 
+    $scope.server = SERVER;
     $scope.$parent.heading = 'Pokemon';
 
     $scope.typeData = TypeData;
@@ -91,13 +97,18 @@ app.controller('PokemonCtrl', [
 ]);
 
 app.controller('KarmaCtrl', [
-  '$scope', 'Trainer',
-  function($scope, Trainer){
+  '$scope', 'Karma',
+  function($scope, Karma){
 
-    $scope.$parent.heading = 'Pokemon';
+    $scope.$parent.heading = 'Karma';
 
-    Trainer.query().$promise.then(function(trainers){
-      $scope.trainers = trainers;
+    $scope.query = {
+      filter: '',
+      order: 'date'
+    };
+
+    Karma.query().$promise.then(function(karma){
+      $scope.karma = karma;
     });
   }
 ]);

@@ -1,15 +1,21 @@
-md-content(layout="column", layout-padding)
-  div.md-padding(ng-repeat="trainer in trainers")
-    h2.md-display-1 {{trainer.user.name}}
+md-content#pokemon-content(layout="column", layout-padding)
+  md-virtual-repeat-container
+    div(md-virtual-repeat="trainer in trainers") {{trainer.user.name}}
 
-    md-grid-list(md-cols-sm="1" md-cols-md="3" md-cols-gt-md="5"
+      md-virtual-repeat-container
+        div(md-virtual-repeat="capture in trainer.capturedPokemons") {{capture}}
+
+  div.md-padding(ng-repeat="trainer in trainers")
+    h3.md-display-1 {{trainer.user.name}} ({{trainer.capturedPokemons.length}}/151)
+
+    md-grid-list(md-cols-sm="2" md-cols-md="3" md-cols-gt-md="5"
       md-row-height="26:41")
       md-grid-tile(ng-repeat="capture in trainer.capturedPokemons", md-rowspan="1" md-colspan="1")
         md-card.pokemon-card
           md-tooltip(ng-show="capture.message") {{capture.message}}
           md-tooltip(ng-hide="capture.message") Nessun messaggio registrato
           div.md-padding
-            img(ng-src="{{assetsHost}}/{{capture.pokemon.sprite.officialArt}}")
+            img(ng-src="{{server}}/{{capture.pokemon.sprite.officialArt}}")
           md-card-content.pokemon-card-content
             div
               h5.md-subhead &#35;{{capture.pokemon.ndex}}

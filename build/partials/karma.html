@@ -1,18 +1,31 @@
 
-<md-content layout="column" layout-padding="layout-padding">
-  <div ng-repeat="trainer in trainers" class="md-padding">
-    <h2 class="md-display-1">{{trainer.user.name}}</h2>
-    <md-grid-list md-cols-sm="1" md-cols-md="3" md-cols-gt-md="5" md-row-height="3:4">
-      <md-grid-tile ng-repeat="capture in trainer.capturedPokemons" md-rowspan="1" md-colspan="1">
-        <md-card class="pokemon-card">
-          <md-tooltip ng-show="capture.message">{{capture.message}}</md-tooltip>
-          <md-tooltip ng-hide="capture.message">Nessun messaggio registrato</md-tooltip>
-          <div class="md-padding"><img ng-src="{{assetsHost}}/{{capture.pokemon.sprite.officialArt}}"/></div>
-          <md-card-content>
-            <h4 class="md-subhead">&#35;{{capture.pokemon.ndex}} {{capture.pokemon.name}}</h4>
-          </md-card-content>
-        </md-card>
-      </md-grid-tile>
-    </md-grid-list>
-  </div>
+<md-content id="karma-content" layout="column" flex="flex" ng-class="{'md-padding': gtSm}">
+  <md-tabs flex="flex" class="md-border-bottom md-whiteframe-z1">
+    <md-toolbar>
+      <md-tab ng-repeat="userKarma in karma" label="{{userKarma.user.name}}">
+        <md-content class="tabs-content">
+          <div>
+            <md-data-table-container>
+              <table md-data-table="">
+                <thead md-order="query.order" md-trigger="onOrderChange">
+                  <tr>
+                    <th name="Da" order-by="fromUserId.name"></th>
+                    <th name="Messaggo" order-by="message"></th>
+                    <th name="Data" order-by="date"></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr md-auto-select="" ng-repeat="karmaPoint in userKarma.karmaPoints | orderBy: query.order">
+                    <td><span ng-show="karmaPoint.fromUserId.telegramId != 666">{{karmaPoint.fromUserId.name}}</span><span ng-show="karmaPoint.fromUserId.telegramId == 666"><i>Un amico</i></span></td>
+                    <td><span ng-show="karmaPoint.message">{{karmaPoint.message}}</span><span ng-hide="karmaPoint.message"><i>È nei nostri ricordi</i></span></td>
+                    <td>{{karmaPoint.date | date: 'dd/MM/yyyy HH:mm'}}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </md-data-table-container>
+          </div>
+        </md-content>
+      </md-tab>
+    </md-toolbar>
+  </md-tabs>
 </md-content>
