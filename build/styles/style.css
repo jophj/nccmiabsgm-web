@@ -109,13 +109,18 @@ md-card.pokemon-card:hover {
   text-align: center;
 }
 
-.pokemon-filter{
+.pokemon-filter.gt-sm {
   position: absolute;
   left: 0;
   right: 0;
   padding-left: 16px; 
-  padding-right: 16px; 
+  padding-right: 16px;
 }
+
+.pokemon-filter > md-input-container{
+  padding-bottom: 8px;
+}
+
 /**
   Karma stuff
 */

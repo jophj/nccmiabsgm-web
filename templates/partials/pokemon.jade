@@ -1,7 +1,7 @@
 md-content#pokemon-content(layout="column", layout-padding)
 
-  div.pokemon-filter(layout="row", layout-align="end")
-    md-input-container(flex="50")
+  div.pokemon-filter(layout="row", layout-align="end", ng-class="{'gt-sm': gtSm}")
+    md-input-container(flex="50", flex-sm="100")
       label Search
       input(ng-model="searchString", ng-change="onSearchStringUpdated()")
 

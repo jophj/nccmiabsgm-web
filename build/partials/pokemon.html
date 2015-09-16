@@ -1,7 +1,7 @@
 
 <md-content id="pokemon-content" layout="column" layout-padding="layout-padding">
-  <div layout="row" layout-align="end" class="pokemon-filter">
-    <md-input-container flex="50">
+  <div layout="row" layout-align="end" ng-class="{'gt-sm': gtSm}" class="pokemon-filter">
+    <md-input-container flex="50" flex-sm="100">
       <label>Search</label>
       <input ng-model="searchString" ng-change="onSearchStringUpdated()"/>
     </md-input-container>
