@@ -1,10 +1,4 @@
 md-content#pokemon-content(layout="column", layout-padding)
-  md-virtual-repeat-container
-    div(md-virtual-repeat="trainer in trainers") {{trainer.user.name}}
-
-      md-virtual-repeat-container
-        div(md-virtual-repeat="capture in trainer.capturedPokemons") {{capture}}
-
   div.md-padding(ng-repeat="trainer in trainers")
     h3.md-display-1 {{trainer.user.name}} ({{trainer.capturedPokemons.length}}/151)
 
