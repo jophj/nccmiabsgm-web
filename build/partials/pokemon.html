@@ -8,6 +8,9 @@
   </div>
   <div ng-repeat="trainer in trainers" ng-show="trainer.$filteredPokemons.length" class="md-padding">
     <h3 class="md-display-1">{{trainer.user.name}} ({{trainer.capturedPokemons.length}}/151)</h3>
+    <div layout="row">
+      <div ng-repeat="badge in trainer.$badges" class="badge"><img ng-src="{{badge.imageUrl}}"/></div>
+    </div>
     <md-grid-list md-cols-sm="2" md-cols-md="3" md-cols-gt-md="5" md-row-height="26:41">
       <md-grid-tile ng-repeat="capture in trainer.$filteredPokemons" md-rowspan="1" md-colspan="1">
         <md-card class="pokemon-card">

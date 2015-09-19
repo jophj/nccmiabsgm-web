@@ -121,6 +121,15 @@ md-card.pokemon-card:hover {
   padding-bottom: 8px;
 }
 
+.badge {
+  height: 32px;
+}
+
+.badge > img {
+  height: 100%;
+}
+
+
 /**
   Karma stuff
 */
