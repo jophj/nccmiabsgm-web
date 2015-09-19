@@ -21,8 +21,8 @@ app.config(['$routeProvider', function($routeProvider) {
     });
 }]);
 
-//app.constant('SERVER', 'http://52.26.147.171:8081');
-app.constant('SERVER', 'http://localhost:8081');
+app.constant('SERVER', 'http://52.26.147.171:8081');
+//app.constant('SERVER', 'http://localhost:8081');
 
 app.controller('AppCtrl', [
   '$scope', '$mdMedia', '$mdSidenav',
