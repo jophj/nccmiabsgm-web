@@ -21,8 +21,8 @@ app.config(['$routeProvider', function($routeProvider) {
     });
 }]);
 
-//app.constant('SERVER', 'http://52.26.147.171:8081');
-app.constant('SERVER', 'http://localhost:8081');
+app.constant('SERVER', 'http://52.26.147.171:8081');
+//app.constant('SERVER', 'http://localhost:8081');
 
 app.controller('AppCtrl', [
   '$scope', '$mdMedia', '$mdSidenav',
@@ -44,6 +44,14 @@ app.controller('AppCtrl', [
       $mdSidenav('left').open();
     };
     $scope.closeMenu = function(){
+      $mdSidenav('left').close();
+    };
+
+    $scope.onSwipeRight = function(evt){
+      $mdSidenav('left').open();
+    };
+
+    $scope.onSwipeLeft = function(evt){
       $mdSidenav('left').close();
     };
   }
@@ -153,8 +161,36 @@ app.controller('KarmaCtrl', [
       order: 'date'
     };
 
+    $scope.oldSelectedTab = 0
+    $scope.selectedTab = 0;
+    $scope.stopPropagation = false;
+
+    $scope.onSwipeRight = function(evt){
+      if ($scope.stopPropagation)
+        evt.stopPropagation();
+    
+      if ($scope.selectedTab == 0)
+        $scope.stopPropagation = false;
+      else
+        $scope.stopPropagation = true;
+    };
+
+    $scope.onSwipeLeft = function(evt){
+      $scope.stopPropagation = true;
+      evt.stopPropagation();
+    };
+
+    $scope.onTabSelected = function(tabIndex){
+      $scope.selectedTab = tabIndex;
+
+      if ($scope.selectedTab > 0)
+        $scope.stopPropagation = true;
+    };
+
+
     Karma.query().$promise.then(function(karma){
       $scope.karma = karma;
     });
+
   }
 ]);

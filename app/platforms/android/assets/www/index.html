@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html ng-app="NccmiabsgmApp">
+  <head>
+    <meta charset="utf-8">
+    <title>NCCMIAB</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" href="./assets/icons/logo.png">
+    <link rel="stylesheet" href="libs/angular-material.min.css">
+    <link rel="stylesheet" href="libs/md-data-table.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=RobotoDraft:100,200,300,400">
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/nav.css">
+    <link rel="stylesheet" href="styles/pills.css">
+    <script src="libs/angular.min.js"></script>
+    <script src="libs/angular-route.min.js"></script>
+    <script src="libs/angular-animate.min.js"></script>
+    <script src="libs/angular-aria.min.js"></script>
+    <script src="libs/angular-material.min.js"></script>
+    <script src="libs/angular-resource.min.js"></script>
+    <script src="libs/md-data-table.min.js"></script>
+  </head>
+  <body ng-controller="AppCtrl" layout="row">
+    <md-sidenav md-component-id="left" md-is-locked-open="menuLockedOpen" class="md-sidenav-left md-whiteframe-z2">
+      <header>
+        <md-toolbar class="md-whiteframe-z2">
+          <div class="md-toolbar-tools">
+            <h1 class="md-heading">NCCMIAB<sup>beta</sup></h1>
+          </div>
+        </md-toolbar>
+      </header>
+      <md-content flex role="navigation" class="md-default-theme">
+        <ul role="navigation" class="nav">
+          <li ng-class="selectedClass['pokemon']" class="red"><a href="#/pokemon">
+              <div layout="row">
+                <div class="icon">
+                  <md-icon md-svg-icon="./assets/icons/ic_pokeball.svg"></md-icon>
+                </div>
+                <div class="text"><span>Pokemon</span></div>
+              </div></a></li>
+          <li ng-class="selectedClass['karma']" class="azure"><a href="#/karma">
+              <div layout="row">
+                <div class="icon">
+                  <md-icon md-svg-icon="./assets/icons/ic_yin_yang.svg"></md-icon>
+                </div>
+                <div class="text"><span>Karma</span></div>
+              </div></a></li>
+        </ul>
+      </md-content>
+    </md-sidenav>
+    <div layout="column" flex>
+      <md-toolbar class="md-scroll-shrink">
+        <div class="md-toolbar-tools">
+          <md-button ng-click="toggleMenu()" ng-hide="menuLockedOpen" aria-label="menu" class="md-icon-button">
+            <md-icon md-svg-icon="./assets/icons/ic_menu_24px.svg"></md-icon>
+          </md-button>
+          <h2 class="md-heading">{{heading}}</h2>
+        </div>
+      </md-toolbar>
+      <md-table headers="headers" content="content" sortable="sortable" filters="search" custom-class="custom" thumbs="thumbs" count="count"></md-table>
+      <md-content ng-view layout="column" flex></md-content>
+    </div>
+    <script src="scripts/app.js"></script>
+  </body>
+</html>

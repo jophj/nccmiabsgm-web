@@ -1,7 +1,7 @@
-md-content#karma-content(layout="column", flex, ng-class="{'md-padding': gtSm}")
-  md-tabs.md-border-bottom.md-whiteframe-z1(flex)
+md-content#karma-content(layout="column", flex, ng-class="{'md-padding': gtSm}", md-swipe-right="onSwipeRight($event)", md-swipe-left="onSwipeLeft($event)")
+  md-tabs.md-border-bottom.md-whiteframe-z1(flex, md-swipe-content)
     md-toolbar
-      md-tab(ng-repeat="userKarma in karma", label="{{userKarma.user.name}}")
+      md-tab(ng-repeat="userKarma in karma track by $index", md-on-select="onTabSelected($index)", label="{{userKarma.user.name}}")
         md-content.tabs-content
           div
             md-data-table-container

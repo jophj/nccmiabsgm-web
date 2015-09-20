@@ -5,6 +5,7 @@ html(ng-app="NccmiabsgmApp")
     title NCCMIAB
     meta(name='description', content='')
     meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(rel="icon", type="image/png", href="./assets/icons/logo.png")
     link(rel='stylesheet', href='libs/angular-material.min.css')
     link(rel='stylesheet', href='libs/md-data-table.min.css')
     link(rel="stylesheet", href="https://fonts.googleapis.com/css?family=RobotoDraft:100,200,300,400")
@@ -19,7 +20,7 @@ html(ng-app="NccmiabsgmApp")
     script(src='libs/angular-resource.min.js')
     script(src='libs/md-data-table.min.js')
 
-  body(ng-controller="AppCtrl", layout="row")
+  body(ng-controller="AppCtrl", layout="row", md-swipe-right="onSwipeRight($event)", md-swipe-left="onSwipeLeft($event)")
 
     md-sidenav.md-sidenav-left.md-whiteframe-z2(
       md-component-id="left",
