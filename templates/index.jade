@@ -5,7 +5,7 @@ html(ng-app="NccmiabsgmApp")
     title NCCMIAB
     meta(name='description', content='')
     meta(name='viewport', content='width=device-width, initial-scale=1')
-    link(rel="icon", type="image/png", href="./assets/icons/logo.png")
+    link(rel="icon", type="image/png", href="./assets/icons/ic_logo.png")
     link(rel='stylesheet', href='libs/angular-material.min.css')
     link(rel='stylesheet', href='libs/md-data-table.min.css')
     link(rel="stylesheet", href="https://fonts.googleapis.com/css?family=RobotoDraft:100,200,300,400")
@@ -52,10 +52,15 @@ html(ng-app="NccmiabsgmApp")
 
     div(layout="column", flex)
       md-toolbar.md-scroll-shrink
-        div.md-toolbar-tools
-          md-button.md-icon-button(ng-click="toggleMenu()", ng-hide="menuLockedOpen", aria-label="menu")
-            md-icon(md-svg-icon="./assets/icons/ic_menu_24px.svg")
-          h2.md-heading {{heading}}
+        div(layout="row", flex)
+          div.md-toolbar-tools(flex="30")
+            md-button.md-icon-button(ng-click="toggleMenu()", ng-hide="menuLockedOpen", aria-label="menu")
+              md-icon(md-svg-icon="./assets/icons/ic_menu_24px.svg")
+            h2.md-heading {{heading}}
+          div.md-toolbar-tools(flex)
+            div(layout="row", flex)
+              span(layout-align="right", flex)
+              p.quote {{quote.message}}
       
       md-table(headers="headers", content="content", sortable="sortable", filters="search", custom-class="custom", thumbs="thumbs", count="count")
       md-content(ng-view, layout="column", flex)

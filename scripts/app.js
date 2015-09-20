@@ -24,9 +24,13 @@ app.config(['$routeProvider', function($routeProvider) {
 app.constant('SERVER', 'http://52.26.147.171:8081');
 //app.constant('SERVER', 'http://localhost:8081');
 
+app.factory('RandomQuote', ['$resource', 'SERVER', function($resource, SERVER) {
+  return $resource(SERVER + '/api/quotes/random');
+}]);
+
 app.controller('AppCtrl', [
-  '$scope', '$mdMedia', '$mdSidenav',
-  function($scope, $mdMedia, $mdSidenav){
+  '$scope', '$mdMedia', '$mdSidenav', 'RandomQuote',
+  function($scope, $mdMedia, $mdSidenav, RandomQuote){
 
     $scope.heading = '';
     $scope.gtSm = $mdMedia('gt-sm');
@@ -54,6 +58,10 @@ app.controller('AppCtrl', [
     $scope.onSwipeLeft = function(evt){
       $mdSidenav('left').close();
     };
+
+    RandomQuote.get().$promise.then(function(quote){
+      $scope.quote = quote;
+    });
   }
 ]);
 

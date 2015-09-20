@@ -20,7 +20,7 @@
     <script src="libs/angular-resource.min.js"></script>
     <script src="libs/md-data-table.min.js"></script>
   </head>
-  <body ng-controller="AppCtrl" layout="row">
+  <body ng-controller="AppCtrl" layout="row" md-swipe-right="onSwipeRight($event)" md-swipe-left="onSwipeLeft($event)">
     <md-sidenav md-component-id="left" md-is-locked-open="menuLockedOpen" class="md-sidenav-left md-whiteframe-z2">
       <header>
         <md-toolbar class="md-whiteframe-z2">
