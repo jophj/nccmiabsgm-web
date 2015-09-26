@@ -1,6 +1,6 @@
 /* Overridden styles */
 md-content{
-  background-color: #EEEEEE;
+  /*background-color: #EEEEEE;*/
 }
 .md-display-1 {
   font-weight: 100;
@@ -48,6 +48,7 @@ sup{
 }
 .quote{
   width: 100%;
+  padding-right: 1em;
   text-align: right;
   overflow: hidden;
   text-overflow: ellipsis;

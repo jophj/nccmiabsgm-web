@@ -16,7 +16,7 @@
         <md-card class="pokemon-card">
           <md-tooltip ng-show="capture.message">{{capture.message}}</md-tooltip>
           <md-tooltip ng-hide="capture.message">Nessun messaggio registrato</md-tooltip>
-          <div class="md-padding"><img ng-src="{{server}}/{{capture.pokemon.sprite.officialArt}}"/></div>
+          <div class="md-padding"><img ng-src="{{server}}/{{capture.pokemon.sprite.officialArt}}" ng-if="settings.animations"/><img ng-src="{{server}}/{{capture.pokemon.sprite.animated}}" ng-if="!settings.animations"/></div>
           <md-card-content class="pokemon-card-content">
             <div>
               <h5 class="md-subhead">&#35;{{capture.pokemon.ndex}}</h5>

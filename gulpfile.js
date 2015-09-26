@@ -32,7 +32,8 @@ destination = {
   scripts: "build/scripts",
   styles: "build/styles",
   libs: "build/libs",
-  assets: "build/assets"
+  assets: "build/assets",
+  appWww: "app/www"
 };
 
 gulp.task("templates", function(event) {
@@ -75,7 +76,15 @@ gulp.task("watch", function() {
   gulp.watch(source.scripts, ["scripts"]);
   gulp.watch(source.styles, ["styles"]);
   gulp.watch(source.assets, ["assets"]);
+  gulp.watch(destination.build+'/**/*', ["appWww"]);
   gulp.watch(destination.build+'/**/*', refresh);
+});
+
+gulp.task("appWww", function() {
+  return gulp.src(destination.build+'/**/*')
+    .pipe(
+      gulp.dest(destination.appWww)
+    );
 });
 
 gulp.task('serve', function () {

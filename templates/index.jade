@@ -19,13 +19,13 @@ html(ng-app="NccmiabsgmApp")
     script(src='libs/angular-material.min.js')
     script(src='libs/angular-resource.min.js')
     script(src='libs/md-data-table.min.js')
+    script(src="cordova.js")
 
   body(ng-controller="AppCtrl", layout="row", md-swipe-right="onSwipeRight($event)", md-swipe-left="onSwipeLeft($event)")
-
     md-sidenav.md-sidenav-left.md-whiteframe-z2(
       md-component-id="left",
       md-is-locked-open="menuLockedOpen")
-      header
+      header(ng-click="onHeaderClick()")
         md-toolbar.md-whiteframe-z2
           div.md-toolbar-tools
             h1.md-heading NCCMIAB
@@ -34,7 +34,7 @@ html(ng-app="NccmiabsgmApp")
       md-content(flex, role="navigation", class="md-default-theme")
         ul.nav(role="navigation")
           
-          li.red(ng-class="selectedClass['pokemon']")
+          li.red(ng-class="selectedClass['pokemon']", ng-hide="pokemonDisabled")
             a(href="#/pokemon")
               div(layout="row")
                 div.icon
@@ -50,16 +50,23 @@ html(ng-app="NccmiabsgmApp")
                 div.text
                   span Karma
 
+          //li.grey(ng-class="selectedClass['settings']", ng-show="isOnDevice")
+            a(href="#/settings")
+              div(layout="row")
+                div.icon
+                  md-icon(md-svg-icon="./assets/icons/ic_settings_white_48px.svg")
+                div.text
+                  span Impostazioni
+
     div(layout="column", flex)
       md-toolbar.md-scroll-shrink
         div(layout="row", flex)
           div.md-toolbar-tools(flex="30")
             md-button.md-icon-button(ng-click="toggleMenu()", ng-hide="menuLockedOpen", aria-label="menu")
               md-icon(md-svg-icon="./assets/icons/ic_menu_24px.svg")
-            h2.md-heading {{heading}}
+            h2.md-heading {{heading}} {{settings}}
           div.md-toolbar-tools(flex)
             div(layout="row", flex)
-              span(layout-align="right", flex)
               p.quote {{quote.message}}
       
       md-table(headers="headers", content="content", sortable="sortable", filters="search", custom-class="custom", thumbs="thumbs", count="count")

@@ -60,3 +60,9 @@ ul.nav{
 .nav > li.green.selected{
   background-color: #b3c833;
 }
+
+.nav > li.grey .icon,
+.nav > li.grey:hover,
+.nav > li.grey.selected{
+  background-color: #658092;
+}

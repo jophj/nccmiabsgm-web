@@ -1,11 +1,14 @@
 md-content#pokemon-content(layout="column", layout-padding)
 
-  div.pokemon-filter(layout="row", layout-align="end", ng-class="{'gt-sm': gtSm}")
+  div.progress-circular(ng-show="loading", flex="100", layout="row", layout-align="center")
+    md-progress-circular(md-mode="indeterminate", md-diameter="50")
+
+  div.pokemon-filter(ng-hide="loading", layout="row", layout-align="end", ng-class="{'gt-sm': gtSm}")
     md-input-container(flex="50", flex-sm="100")
       label Search
       input(ng-model="searchString", ng-change="onSearchStringUpdated()")
 
-  div.md-padding(ng-repeat="trainer in trainers", ng-show="trainer.$filteredPokemons.length")
+  div.md-padding(ng-hide="loading", ng-repeat="trainer in trainers", ng-show="trainer.$filteredPokemons.length")
     h3.md-display-1 {{trainer.user.name}} ({{trainer.capturedPokemons.length}}/151)
     div(layout="row")
       div.badge(ng-repeat="badge in trainer.$badges")

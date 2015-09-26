@@ -1,6 +1,6 @@
 /* Overridden styles */
 md-content{
-  background-color: #EEEEEE;
+  /*background-color: #EEEEEE;*/
 }
 .md-display-1 {
   font-weight: 100;
@@ -73,6 +73,10 @@ md-sidenav > md-content{
   background-color: white;
 }
 
+.progress-circular{
+  margin-top: 50%;
+}
+
 
 
 /**
@@ -134,9 +138,3 @@ md-card.pokemon-card:hover {
 /**
   Karma stuff
 */
-md-content#karma-content .tabs-content{
-  background-color: white;
-}
-md-tabs {
-  background-color: white;
-}

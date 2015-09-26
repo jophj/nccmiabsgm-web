@@ -19,10 +19,11 @@
     <script src="libs/angular-material.min.js"></script>
     <script src="libs/angular-resource.min.js"></script>
     <script src="libs/md-data-table.min.js"></script>
+    <script src="cordova.js"></script>
   </head>
   <body ng-controller="AppCtrl" layout="row" md-swipe-right="onSwipeRight($event)" md-swipe-left="onSwipeLeft($event)">
     <md-sidenav md-component-id="left" md-is-locked-open="menuLockedOpen" class="md-sidenav-left md-whiteframe-z2">
-      <header>
+      <header ng-click="onHeaderClick()">
         <md-toolbar class="md-whiteframe-z2">
           <div class="md-toolbar-tools">
             <h1 class="md-heading">NCCMIAB<sup>beta</sup></h1>
@@ -31,7 +32,7 @@
       </header>
       <md-content flex role="navigation" class="md-default-theme">
         <ul role="navigation" class="nav">
-          <li ng-class="selectedClass['pokemon']" class="red"><a href="#/pokemon">
+          <li ng-class="selectedClass['pokemon']" ng-hide="pokemonDisabled" class="red"><a href="#/pokemon">
               <div layout="row">
                 <div class="icon">
                   <md-icon md-svg-icon="./assets/icons/ic_pokeball.svg"></md-icon>
@@ -45,6 +46,15 @@
                 </div>
                 <div class="text"><span>Karma</span></div>
               </div></a></li>
+          <!--li.grey(ng-class="selectedClass['settings']", ng-show="isOnDevice")
+          a(href="#/settings")
+            div(layout="row")
+              div.icon
+                md-icon(md-svg-icon="./assets/icons/ic_settings_white_48px.svg")
+              div.text
+                span Impostazioni
+          
+          -->
         </ul>
       </md-content>
     </md-sidenav>
@@ -55,10 +65,10 @@
             <md-button ng-click="toggleMenu()" ng-hide="menuLockedOpen" aria-label="menu" class="md-icon-button">
               <md-icon md-svg-icon="./assets/icons/ic_menu_24px.svg"></md-icon>
             </md-button>
-            <h2 class="md-heading">{{heading}}</h2>
+            <h2 class="md-heading">{{heading}} {{settings}}</h2>
           </div>
           <div flex class="md-toolbar-tools">
-            <div layout="row" flex><span layout-align="right" flex></span>
+            <div layout="row" flex>
               <p class="quote">{{quote.message}}</p>
             </div>
           </div>

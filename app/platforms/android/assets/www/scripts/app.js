@@ -16,6 +16,10 @@ app.config(['$routeProvider', function($routeProvider) {
       templateUrl: 'partials/karma.html',
       controller: 'KarmaCtrl'
     }).
+    when('/settings', {
+      templateUrl: 'partials/settings.html',
+      controller: 'SettingsCtrl'
+    }).
     otherwise({
       redirectTo: '/pokemon'
     });
@@ -24,9 +28,30 @@ app.config(['$routeProvider', function($routeProvider) {
 app.constant('SERVER', 'http://52.26.147.171:8081');
 //app.constant('SERVER', 'http://localhost:8081');
 
+app.factory('RandomQuote', ['$resource', 'SERVER', function($resource, SERVER) {
+  return $resource(SERVER + '/api/quotes/random');
+}]);
+
 app.controller('AppCtrl', [
-  '$scope', '$mdMedia', '$mdSidenav',
-  function($scope, $mdMedia, $mdSidenav){
+  '$window', '$location', '$scope', '$mdMedia', '$mdSidenav', 'RandomQuote',
+  function($window, $location, $scope, $mdMedia, $mdSidenav, RandomQuote){
+
+
+    $scope.isOnDevice = !!$window.cordova;     //OCCHIO WARNIG DEBUG
+    // pokemon are disabled on android app
+    $scope.clicks = 0;
+
+    var localStorage = $window.localStorage;
+    $scope.pokemonDisabled = !!$window.cordova && !localStorage.getItem('pokemonDisabled');
+    
+    if ($scope.pokemonDisabled)
+      $location.path('karma');
+
+    $scope.onHeaderClick = function(){
+      $scope.clicks += 1;
+      if ($scope.clicks == 12)
+        localStorage.setItem('pokemonDisabled', false);
+    };
 
     $scope.heading = '';
     $scope.gtSm = $mdMedia('gt-sm');
@@ -54,6 +79,33 @@ app.controller('AppCtrl', [
     $scope.onSwipeLeft = function(evt){
       $mdSidenav('left').close();
     };
+
+    RandomQuote.get().$promise.then(function(quote){
+      $scope.quote = quote;
+    });
+
+
+    var buildSelectedClass = function(){
+      return {
+        "pokemon": {
+          "selected":  $location.path() == '/pokemon'
+        },
+        "karma": {
+          "selected": $location.path() == '/karma'
+        },
+        "settings": {
+          "selected": $location.path() == '/settings'
+        }
+      };
+    };
+
+    $scope.$watch(
+      function(){return $location.path(); },
+      function(oldValue, newValue){
+        newValue = newValue.substr(1);
+        $scope.selectedClass = buildSelectedClass();
+      }
+    );
   }
 ]);
 
@@ -187,10 +239,27 @@ app.controller('KarmaCtrl', [
         $scope.stopPropagation = true;
     };
 
-
     Karma.query().$promise.then(function(karma){
       $scope.karma = karma;
     });
+  }
+]);
 
+app.controller('SettingsCtrl', [
+  '$window', '$scope', '$rootScope',
+  function($window, $scope, $rootScope){
+    
+    $scope.$parent.heading = 'Impostazioni';
+
+    var localStorage = $window.localStorage;
+    $rootScope.settings = {
+      animations: localStorage.getItem('settings.animations') === 'true'
+    }
+
+
+    $scope.onToggleAnimations = function(){
+      $rootScope.settings.animations = !$rootScope.settings.animations;
+      localStorage.setItem('settings.animations', $rootScope.settings.animations);
+    };
   }
 ]);
