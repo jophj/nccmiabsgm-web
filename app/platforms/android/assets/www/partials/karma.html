@@ -1,6 +1,9 @@
 
-<md-content id="karma-content" layout="column" flex="flex" ng-class="{'md-padding': gtSm}" md-swipe-right="onSwipeRight($event)" md-swipe-left="onSwipeLeft($event)">
-  <md-tabs flex="flex" md-swipe-content="md-swipe-content" class="md-border-bottom md-whiteframe-z1">
+<md-content id="karma-content" layout="column" flex="flex" md-swipe-right="onSwipeRight($event)" md-swipe-left="onSwipeLeft($event)">
+  <div ng-show="loading" flex="100" layout="row" layout-align="center" class="progress-circular">
+    <md-progress-circular md-mode="indeterminate" md-diameter="50"></md-progress-circular>
+  </div>
+  <md-tabs flex="flex" md-swipe-content="md-swipe-content" ng-hide="loading" class="md-border-bottom">
     <md-toolbar>
       <md-tab ng-repeat="userKarma in karma track by $index" md-on-select="onTabSelected($index)" label="{{userKarma.user.name}}">
         <md-content class="tabs-content">

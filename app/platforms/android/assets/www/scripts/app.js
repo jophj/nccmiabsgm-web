@@ -161,6 +161,7 @@ app.controller('PokemonCtrl', [
 
     $scope.server = SERVER;
     $scope.$parent.heading = 'Pokemon';
+    $scope.loading = true;
 
     $scope.typeData = TypeData;
 
@@ -192,6 +193,7 @@ app.controller('PokemonCtrl', [
             trainer.$badges.push(BadgesData[badge]);
         }
       });
+      $scope.loading = false;
     });
 
     $scope.onSearchStringUpdated = function () {
@@ -207,6 +209,7 @@ app.controller('KarmaCtrl', [
   function($scope, Karma){
 
     $scope.$parent.heading = 'Karma';
+    $scope.loading = true;
 
     $scope.query = {
       filter: '',
@@ -241,6 +244,7 @@ app.controller('KarmaCtrl', [
 
     Karma.query().$promise.then(function(karma){
       $scope.karma = karma;
+      $scope.loading = false;
     });
   }
 ]);

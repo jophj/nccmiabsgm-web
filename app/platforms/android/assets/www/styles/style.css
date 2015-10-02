@@ -73,6 +73,10 @@ md-sidenav > md-content{
   background-color: white;
 }
 
+.progress-circular{
+  margin-top: 10%;
+}
+
 
 
 /**
@@ -134,9 +138,3 @@ md-card.pokemon-card:hover {
 /**
   Karma stuff
 */
-md-content#karma-content .tabs-content{
-  background-color: white;
-}
-md-tabs {
-  background-color: white;
-}

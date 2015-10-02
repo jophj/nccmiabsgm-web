@@ -1,38 +1,44 @@
 
-<md-content id="pokemon-content" layout="column" layout-padding="layout-padding">
+<md-content id="pokemon-content" layout="column">
   <div ng-show="loading" flex="100" layout="row" layout-align="center" class="progress-circular">
     <md-progress-circular md-mode="indeterminate" md-diameter="50"></md-progress-circular>
   </div>
   <div ng-hide="loading" layout="row" layout-align="end" ng-class="{'gt-sm': gtSm}" class="pokemon-filter">
-    <md-input-container flex="50" flex-sm="100">
-      <label>Search</label>
-      <input ng-model="searchString" ng-change="onSearchStringUpdated()"/>
-    </md-input-container>
+    <div flex="50" flex-sm="100" layout-padding="layout-padding">
+      <md-input-container>
+        <label>Search</label>
+        <input ng-model="searchString" ng-change="onSearchStringUpdated()"/>
+      </md-input-container>
+    </div>
   </div>
-  <div ng-hide="loading" ng-repeat="trainer in trainers" ng-show="trainer.$filteredPokemons.length" class="md-padding">
-    <h3 class="md-display-1">{{trainer.user.name}} ({{trainer.capturedPokemons.length}}/151)</h3>
+  <div ng-hide="loading" ng-repeat="trainer in trainers" ng-show="trainer.$filteredPokemons.length">
+    <md-subheader>
+      <h3 class="md-display-1">{{trainer.user.name}} ({{trainer.capturedPokemons.length}}/151)</h3>
+    </md-subheader>
     <div layout="row">
       <div ng-repeat="badge in trainer.$badges" class="badge"><img ng-src="{{badge.imageUrl}}"/></div>
     </div>
-    <md-grid-list md-cols-sm="2" md-cols-md="3" md-cols-gt-md="5" md-row-height="26:41">
-      <md-grid-tile ng-repeat="capture in trainer.$filteredPokemons" md-rowspan="1" md-colspan="1">
-        <md-card class="pokemon-card">
-          <md-tooltip ng-show="capture.message">{{capture.message}}</md-tooltip>
-          <md-tooltip ng-hide="capture.message">Nessun messaggio registrato</md-tooltip>
-          <div class="md-padding"><img ng-src="{{server}}/{{capture.pokemon.sprite.officialArt}}"/></div>
-          <md-card-content class="pokemon-card-content">
-            <div>
-              <h5 class="md-subhead">&#35;{{capture.pokemon.ndex}}</h5>
-            </div>
-            <div>
-              <h4 class="md-subhead">{{capture.pokemon.name}}</h4>
-            </div>
-            <div class="types">
-              <div ng-repeat="type in capture.pokemon.types" class="type"><span ng-class="typeData[type].class" class="pill">{{typeData[type].name}}</span></div>
-            </div>
-          </md-card-content>
-        </md-card>
-      </md-grid-tile>
-    </md-grid-list>
+    <div class="md-padding">
+      <md-grid-list md-cols-sm="2" md-cols-md="3" md-cols-gt-md="5" md-row-height="26:41">
+        <md-grid-tile ng-repeat="capture in trainer.$filteredPokemons" md-rowspan="1" md-colspan="1">
+          <md-card class="pokemon-card">
+            <md-tooltip ng-show="capture.message">{{capture.message}}</md-tooltip>
+            <md-tooltip ng-hide="capture.message">Nessun messaggio registrato</md-tooltip>
+            <div class="md-padding"><img ng-src="{{server}}/{{capture.pokemon.sprite.officialArt}}"/></div>
+            <md-card-content class="pokemon-card-content">
+              <div>
+                <h5 class="md-subhead">&#35;{{capture.pokemon.ndex}}</h5>
+              </div>
+              <div>
+                <h4 class="md-subhead">{{capture.pokemon.name}}</h4>
+              </div>
+              <div class="types">
+                <div ng-repeat="type in capture.pokemon.types" class="type"><span ng-class="typeData[type].class" class="pill">{{typeData[type].name}}</span></div>
+              </div>
+            </md-card-content>
+          </md-card>
+        </md-grid-tile>
+      </md-grid-list>
+    </div>
   </div>
 </md-content>
