@@ -4,7 +4,7 @@ md-content#pokemon-content(layout="column")
     md-progress-circular(md-mode="indeterminate", md-diameter="50")
 
   div.pokemon-filter(ng-hide="loading", layout="row", layout-align="end", ng-class="{'gt-sm': gtSm}")
-    div(flex="50", flex-sm="100", layout-padding)
+    div(flex="50", flex-sm="100", layout-padding, style="z-index: 9999")
       md-input-container
         label Search
         input(ng-model="searchString", ng-change="onSearchStringUpdated()")
@@ -27,7 +27,7 @@ md-content#pokemon-content(layout="column")
           md-card.pokemon-card
             md-tooltip(ng-show="capture.message") {{capture.message}}
             md-tooltip(ng-hide="capture.message") Nessun messaggio registrato
-            div.md-padding
+            div.thumbnail
               img(ng-src="{{server}}/{{capture.pokemon.sprite.officialArt}}")
             md-card-content.pokemon-card-content
               div

@@ -74,7 +74,7 @@ md-sidenav > md-content{
 }
 
 .progress-circular{
-  margin-top: 10%;
+  margin: auto;
 }
 
 
@@ -89,6 +89,13 @@ md-card.pokemon-card:hover {
   background-color: #EEEEEE;
 }
 
+md-card.pokemon-card .thumbnail{
+  padding: 5px;
+}
+
+.pokemon-card-content {
+  padding: 10px;
+}
 .pokemon-card-content h4, h5 {
   margin: 0;
 }
@@ -110,7 +117,7 @@ md-card.pokemon-card:hover {
   width: 45.4375%;
   float: left;
   text-transform: none;
-  font-size: 11px;
+  font-size: 9px;
   text-align: center;
 }
 

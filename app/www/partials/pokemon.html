@@ -4,7 +4,7 @@
     <md-progress-circular md-mode="indeterminate" md-diameter="50"></md-progress-circular>
   </div>
   <div ng-hide="loading" layout="row" layout-align="end" ng-class="{'gt-sm': gtSm}" class="pokemon-filter">
-    <div flex="50" flex-sm="100" layout-padding="layout-padding">
+    <div flex="50" flex-sm="100" layout-padding="layout-padding" style="z-index: 9999">
       <md-input-container>
         <label>Search</label>
         <input ng-model="searchString" ng-change="onSearchStringUpdated()"/>
@@ -24,7 +24,7 @@
           <md-card class="pokemon-card">
             <md-tooltip ng-show="capture.message">{{capture.message}}</md-tooltip>
             <md-tooltip ng-hide="capture.message">Nessun messaggio registrato</md-tooltip>
-            <div class="md-padding"><img ng-src="{{server}}/{{capture.pokemon.sprite.officialArt}}"/></div>
+            <div class="thumbnail"><img ng-src="{{server}}/{{capture.pokemon.sprite.officialArt}}"/></div>
             <md-card-content class="pokemon-card-content">
               <div>
                 <h5 class="md-subhead">&#35;{{capture.pokemon.ndex}}</h5>
