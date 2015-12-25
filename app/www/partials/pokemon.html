@@ -14,10 +14,10 @@
   <div ng-hide="loading" ng-repeat="trainer in trainers" ng-show="trainer.$filteredPokemons.length">
     <md-subheader>
       <h3 class="md-display-1">{{trainer.user.name}} ({{trainer.capturedPokemons.length}}/151)</h3>
+      <div layout="row">
+        <div ng-repeat="badge in trainer.$badges" class="badge"><img ng-src="{{badge.imageUrl}}"/></div>
+      </div>
     </md-subheader>
-    <div layout="row">
-      <div ng-repeat="badge in trainer.$badges" class="badge"><img ng-src="{{badge.imageUrl}}"/></div>
-    </div>
     <div class="md-padding">
       <md-grid-list md-cols-sm="4" md-cols-md="4" md-cols-gt-md="10" md-row-height="24:41">
         <md-grid-tile ng-repeat="capture in trainer.$filteredPokemons" md-rowspan="1" md-colspan="1">

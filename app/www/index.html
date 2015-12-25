@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=RobotoDraft:100,200,300,400">
     <link rel="stylesheet" href="styles/style.css">
     <link rel="stylesheet" href="styles/nav.css">
+    <link rel="stylesheet" href="styles/snowflakes.css">
     <link rel="stylesheet" href="styles/pills.css">
     <script src="libs/angular.min.js"></script>
     <script src="libs/angular-route.min.js"></script>
@@ -22,6 +23,9 @@
     <script src="cordova.js"></script>
   </head>
   <body ng-controller="AppCtrl" layout="row" md-swipe-right="onSwipeRight($event)" md-swipe-left="onSwipeLeft($event)">
+    <div id="snowflakeContainer">
+      <p class="snowflake">*</p>
+    </div>
     <md-sidenav md-component-id="left" md-is-locked-open="menuLockedOpen" class="md-sidenav-left md-whiteframe-z2">
       <header ng-click="onHeaderClick()">
         <md-toolbar class="md-whiteframe-z2">
@@ -78,5 +82,6 @@
       <md-content ng-view layout="column" flex></md-content>
     </div>
     <script src="scripts/app.js"></script>
+    <script src="scripts/fallingsnow_v6.js"></script>
   </body>
 </html>

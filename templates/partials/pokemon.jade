@@ -12,9 +12,9 @@ md-content#pokemon-content(layout="column")
   div(ng-hide="loading", ng-repeat="trainer in trainers", ng-show="trainer.$filteredPokemons.length")
     md-subheader
       h3.md-display-1 {{trainer.user.name}} ({{trainer.capturedPokemons.length}}/151)
-    div(layout="row")
-      div.badge(ng-repeat="badge in trainer.$badges")
-        img(ng-src="{{badge.imageUrl}}")
+      div(layout="row")
+        div.badge(ng-repeat="badge in trainer.$badges")
+          img(ng-src="{{badge.imageUrl}}")
 
     div.md-padding
       md-grid-list(
