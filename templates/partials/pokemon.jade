@@ -4,7 +4,7 @@ md-content#pokemon-content(layout="column")
     md-progress-circular(md-mode="indeterminate", md-diameter="50")
 
   div.pokemon-filter(ng-hide="loading", layout="row", layout-align="end", ng-class="{'gt-sm': gtSm}")
-    div(flex="100", flex-gt-sm="50", layout-padding, style="z-index: 9999")
+    div(flex="100", flex-gt-sm="50", layout-padding, style="z-index: 2")
       md-input-container(style="width:100%;")
         label Search
         input(ng-model="searchString", ng-change="onSearchStringUpdated()")
