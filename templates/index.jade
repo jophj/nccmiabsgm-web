@@ -24,7 +24,8 @@ html(ng-app="NccmiabsgmApp")
 
   body(ng-controller="AppCtrl", layout="row", md-swipe-right="onSwipeRight($event)", md-swipe-left="onSwipeLeft($event)")
     div#snowflakeContainer
-      p.snowflake *
+      p.snowflake
+        img.snowflake(src="./assets/silvia_mastrella.png")
     md-sidenav.md-sidenav-left.md-whiteframe-z2(
       md-component-id="left",
       md-is-locked-open="menuLockedOpen")

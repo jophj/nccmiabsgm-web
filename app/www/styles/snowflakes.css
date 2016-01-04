@@ -3,6 +3,11 @@
     left: 0px;
     top: 0px;
 }
+
+img.snowflake{
+    height: 48px;
+    width: 48px;
+}
 .snowflake {
     padding-left: 15px;
     font-family: Cambria, Georgia, serif;
