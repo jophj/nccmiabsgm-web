@@ -21,7 +21,7 @@
     <script src="libs/md-data-table.min.js"></script>
     <script src="cordova.js"></script>
   </head>
-  <body ng-controller="AppCtrl" layout="row" md-swipe-right="onSwipeRight($event)" md-swipe-left="onSwipeLeft($event)">
+  <body ng-controller="AppCtrl" layout="row" flex="100" md-swipe-right="onSwipeRight($event)" md-swipe-left="onSwipeLeft($event)">
     <md-sidenav md-component-id="left" md-is-locked-open="menuLockedOpen" class="md-sidenav-left md-whiteframe-z2">
       <header ng-click="onHeaderClick()">
         <md-toolbar class="md-whiteframe-z2">
@@ -72,7 +72,7 @@
           </div>
         </div>
       </md-toolbar>
-      <md-content ng-view layout="column" flex></md-content>
+      <md-content ng-view layout="column" flex="nogrow"></md-content>
     </div>
     <script src="scripts/app.js"></script>
   </body>

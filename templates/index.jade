@@ -21,7 +21,7 @@ html(ng-app="NccmiabsgmApp")
     script(src='libs/md-data-table.min.js')
     script(src="cordova.js")
 
-  body(ng-controller="AppCtrl", layout="row", md-swipe-right="onSwipeRight($event)", md-swipe-left="onSwipeLeft($event)")
+  body(ng-controller="AppCtrl", layout="row", flex="100" md-swipe-right="onSwipeRight($event)", md-swipe-left="onSwipeLeft($event)")
     md-sidenav.md-sidenav-left.md-whiteframe-z2(
       md-component-id="left",
       md-is-locked-open="menuLockedOpen")
@@ -68,6 +68,6 @@ html(ng-app="NccmiabsgmApp")
           div.md-toolbar-tools(flex="50")
             p.quote(flex="100") {{quote.message}}{{quote.message}}{{quote.message}}{{quote.message}}{{quote.message}}{{quote.message}}{{quote.message}}{{quote.message}}{{quote.message}}{{quote.message}}{{quote.message}}
 
-      md-content(ng-view, layout="column", flex)
+      md-content(ng-view, layout="column", flex="nogrow")
 
     script(src='scripts/app.js')
