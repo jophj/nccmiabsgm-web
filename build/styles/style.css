@@ -47,8 +47,6 @@ sup{
   position: absolute;
 }
 .quote{
-  width: 100%;
-  padding-right: 1em;
   text-align: right;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -103,6 +101,10 @@ md-card.pokemon-card .thumbnail{
 .pokemon-card-content h5 {
   font-size: 12px;
   color: #AAA;
+}
+
+.pokemon-card-content h4 {
+  font-size: 12px;
 }
 
 .types {

@@ -58,7 +58,7 @@
         </ul>
       </md-content>
     </md-sidenav>
-    <div layout="column" flex>
+    <div layout="column" flex="100">
       <md-toolbar class="md-scroll-shrink">
         <div layout="row" flex>
           <div flex="50" class="md-toolbar-tools">
@@ -67,14 +67,11 @@
             </md-button>
             <h2 class="md-heading">{{heading}} {{settings}}</h2>
           </div>
-          <div flex class="md-toolbar-tools">
-            <div layout="row" flex>
-              <p class="quote">{{quote.message}}</p>
-            </div>
+          <div flex="50" class="md-toolbar-tools">
+            <p flex="100" class="quote">{{quote.message}}{{quote.message}}{{quote.message}}{{quote.message}}{{quote.message}}{{quote.message}}{{quote.message}}{{quote.message}}{{quote.message}}{{quote.message}}{{quote.message}}</p>
           </div>
         </div>
       </md-toolbar>
-      <md-table headers="headers" content="content" sortable="sortable" filters="search" custom-class="custom" thumbs="thumbs" count="count"></md-table>
       <md-content ng-view layout="column" flex></md-content>
     </div>
     <script src="scripts/app.js"></script>

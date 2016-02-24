@@ -58,18 +58,16 @@ html(ng-app="NccmiabsgmApp")
                 div.text
                   span Impostazioni
 
-    div(layout="column", flex)
+    div(layout="column", flex="100")
       md-toolbar.md-scroll-shrink
         div(layout="row", flex)
           div.md-toolbar-tools(flex="50")
             md-button.md-icon-button(ng-click="toggleMenu()", ng-hide="menuLockedOpen", aria-label="menu")
               md-icon(md-svg-icon="./assets/icons/ic_menu_24px.svg")
             h2.md-heading {{heading}} {{settings}}
-          div.md-toolbar-tools(flex)
-            div(layout="row", flex)
-              p.quote {{quote.message}}
+          div.md-toolbar-tools(flex="50")
+            p.quote(flex="100") {{quote.message}}{{quote.message}}{{quote.message}}{{quote.message}}{{quote.message}}{{quote.message}}{{quote.message}}{{quote.message}}{{quote.message}}{{quote.message}}{{quote.message}}
 
-      md-table(headers="headers", content="content", sortable="sortable", filters="search", custom-class="custom", thumbs="thumbs", count="count")
       md-content(ng-view, layout="column", flex)
 
     script(src='scripts/app.js')
