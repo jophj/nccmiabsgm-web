@@ -1,7 +1,4 @@
 /* Overridden styles */
-md-content{
-  /*background-color: #EEEEEE;*/
-}
 .md-display-1 {
   font-weight: 100;
 }
@@ -34,7 +31,6 @@ html{
 }
 body{
   height: 100%;
-  background-color: #EEEEEE;
 }
 a{
   color: inherit;
@@ -69,10 +65,6 @@ md-sidenav > header {
 }
 md-sidenav > md-content{
   background-color: white;
-}
-
-.progress-circular{
-  margin: auto;
 }
 
 

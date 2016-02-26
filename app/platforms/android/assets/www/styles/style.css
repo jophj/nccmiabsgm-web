@@ -1,7 +1,4 @@
 /* Overridden styles */
-md-content{
-  /*background-color: #EEEEEE;*/
-}
 .md-display-1 {
   font-weight: 100;
 }
@@ -34,7 +31,6 @@ html{
 }
 body{
   height: 100%;
-  background-color: #EEEEEE;
 }
 a{
   color: inherit;
@@ -47,8 +43,6 @@ sup{
   position: absolute;
 }
 .quote{
-  width: 100%;
-  padding-right: 1em;
   text-align: right;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -73,10 +67,6 @@ md-sidenav > md-content{
   background-color: white;
 }
 
-.progress-circular{
-  margin-top: 10%;
-}
-
 
 
 /**
@@ -89,6 +79,13 @@ md-card.pokemon-card:hover {
   background-color: #EEEEEE;
 }
 
+md-card.pokemon-card .thumbnail{
+  padding: 5px;
+}
+
+.pokemon-card-content {
+  padding: 10px;
+}
 .pokemon-card-content h4, h5 {
   margin: 0;
 }
@@ -96,6 +93,10 @@ md-card.pokemon-card:hover {
 .pokemon-card-content h5 {
   font-size: 12px;
   color: #AAA;
+}
+
+.pokemon-card-content h4 {
+  font-size: 12px;
 }
 
 .types {
@@ -110,7 +111,7 @@ md-card.pokemon-card:hover {
   width: 45.4375%;
   float: left;
   text-transform: none;
-  font-size: 11px;
+  font-size: 9px;
   text-align: center;
 }
 
