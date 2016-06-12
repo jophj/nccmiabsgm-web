@@ -1,0 +1,28 @@
+{
+  "name": "nccmiabsgm-web",
+  "version": "1.0.0",
+  "main": "gulpfile.js",
+  "dependencies": {
+    "connect-livereload": "^0.5.4",
+    "express": "^4.13.4",
+    "gulp": "^3.9.1",
+    "gulp-jade": "^1.1.0",
+    "gulp-util": "^3.0.7",
+    "tiny-lr": "^0.2.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jophj/nccmiabsgm-web.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jophj/nccmiabsgm-web/issues"
+  },
+  "homepage": "https://github.com/jophj/nccmiabsgm-web#readme",
+  "description": ""
+}
