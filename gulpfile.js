@@ -43,8 +43,10 @@ gulp.task("templates", function(event) {
 });
 
 gulp.task("scripts", function(event) {
-  return gulp.src(source.scripts)
-  .pipe(gulp.dest(destination.scripts));
+  gulp.src(source.scripts)
+    .pipe(gulp.dest(destination.scripts));
+  return gulp.src("manifest.json")
+    .pipe(gulp.dest("build/"));
 });
 
 gulp.task("styles", function(event) {

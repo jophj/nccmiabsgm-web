@@ -25,7 +25,7 @@ app.config(['$routeProvider', function($routeProvider) {
     });
 }]);
 
-app.constant('SERVER', 'http://localhost:5055');
+app.constant('SERVER', 'http://64.137.233.242:5055');
 
 app.factory('RandomQuote', ['$resource', 'SERVER', function($resource, SERVER) {
   return $resource(SERVER + '/api/quotes/random');
